@@ -1,7 +1,7 @@
 #!/bin/sh
 # From https://github.com/mschubert/clustermq/wiki/SLURM
 #SBATCH --job-name={{ job_name }}           # job name
-##SBATCH --partition=hpg2-compute                 # partition
+#SBATCH --partition=hpg2-compute                 # partition
 #SBATCH --output={{ log_file | logs/workers/pipeline%j_%a.out }} # you can add .%a for array index
 #SBATCH --error={{ log_file | logs/workers/pipeline%j_%a.err}}  # log file
 #SBATCH --mem-per-cpu={{ memory | 8192 }}   # memory
