@@ -4,8 +4,9 @@
 
 <!-- badges: end -->
 
-This is a minimal example of a `targets` workflow that can run on HiperGator HPC using the `clustermq` backend for paralellization.
-To use, SSH into HiperGator and navigate to your `blue` or `orange` directory and clone this repository by running.
+This is a minimal example of a [`targets`](https://docs.ropensci.org/targets/) workflow that can run on [HiperGator](https://www.rc.ufl.edu/services/hipergator/) HPC using the [`clustermq`](https://mschubert.github.io/clustermq/) backend for paralellization.
+To use, [SSH into HiperGator](https://help.rc.ufl.edu/doc/Getting_Started#Connecting_to_HiPerGator) and navigate to your `blue` or `orange` directory.
+Then clone this repository by running:
 
     git clone https://github.com/BrunaLab/hipergator-targets.git
 
@@ -19,4 +20,4 @@ This will start a job on HiperGator that will in turn spawn other jobs using the
 
 You may also want to test that this workflow runs locally on your computer.
 You can clone this repository locally and run `targets::tar_make()` in the console to run it.
-See documentation for the `targets` package for more information.
+See [documentation for the `targets` package](https://books.ropensci.org/targets/) for more information.
