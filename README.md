@@ -31,3 +31,7 @@ Parallelizing code *within* a target (e.g. a function that does parallel computa
 You may also want to test that this workflow runs locally on your computer.
 You can clone this repository locally and run `targets::tar_make()` in the console to run it.
 See [documentation for the `targets` package](https://books.ropensci.org/targets/) for more information.
+
+## Acknowledgments
+
+Shouts to [\@diazrenata](https://github.com/diazrenata) for taking the time to help me figure this out.
