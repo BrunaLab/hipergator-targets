@@ -45,5 +45,7 @@ _targets/
 renv/
 
 #logs
-logs/
+logs/*.err
+logs/*.out
+
 
