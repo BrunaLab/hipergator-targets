@@ -41,8 +41,6 @@ _targets/
 # html
 *.html
 
-# renv via capsule
-renv/
 
 #logs
 logs/*.err
