@@ -19,9 +19,9 @@ tar_option_set()
 tar_plan(
   many_vects = make_vects(),
   means = map(many_vects, ~mean(.x)),
-  means_mean = mean(unlist(means)),
+  means_mean = mean(unlist(means)) #,
   
-  dat = gamSim(1, n = 25000, dist = "normal", scale = 20),
-  model = fit_bam(dat)
+  # dat = gamSim(1, n = 25000, dist = "normal", scale = 20),
+  # model = fit_bam(dat)
   
 )
