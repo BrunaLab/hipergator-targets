@@ -12,11 +12,21 @@ Then clone this repository by running:
 
 Edit `submit_pipeline.sbatch` in a text editor to include your email address and any other SLURM settings you wish.
 
-Make sure all necessary packages are installed by running `Rscript packages.R` without getting any errors.
-(Hopefully I can eventually figure out how to get `renv` working on HiperGator to skip this step)
-
 Then, start the workflow by running `sbatch submit_pipeline.sbatch`.
 This will start a job on HiperGator that will in turn spawn other jobs using the `clustermq` package and the `slurm_clustermq.tmpl` file.
+The project is set up to use [`renv`](https://rstudio.github.io/renv/index.html) to manage a package library so as long as the lockfile is up-to-date, all necessary packages should be installed.
+
+## How it works:
+
+1.  `submit_pipeline.sbatch` tells SLURM to load R and then run `pipeline.R`---that's it. This starts a top-level job running on HiperGator.
+2.  `pipeline.R` installs dependencies with `renv::restore()`, then runs the `targets` workflow with `tar_make_clustermq()`.
+3.  Using `tar_make_clustermq()` spawns worker jobs on HiperGator using the `slurm_clustermq.tmpl` file as a template for the SLURM submission scripts for each worker.
+
+The parallelization happens at the level of targets.
+In this example, a list of numeric vectors is stored as `many_vects`.
+Then, independently, means and standard deviations are calculated for each vector in the list.
+These two targets (the means and the sd's) should be able to run on separate workers in parallel if things are set up correctly.
+Parallelizing code *within* a target (e.g. a function that does parallel computation) will require more setup.
 
 You may also want to test that this workflow runs locally on your computer.
 You can clone this repository locally and run `targets::tar_make()` in the console to run it.
