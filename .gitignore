@@ -43,3 +43,7 @@ _targets/
 
 # renv via capsule
 renv/
+
+#logs
+logs/
+
