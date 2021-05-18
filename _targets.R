@@ -20,7 +20,8 @@ tar_option_set()
 tar_plan(
   many_vects = make_vects(),
   means = map(many_vects, ~mean(.x)),
+  sds = map(many_vects, ~sd(.x)),
   # these targets should be able to run in parallel:
   means_mean = mean(unlist(means)),
-  means_sd = sd(unlist(means))
+  sd_means = mean(unlist(sds))
 )
