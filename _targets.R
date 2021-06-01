@@ -14,7 +14,8 @@ source("./packages.R")
 lapply(list.files("R", full.names = TRUE), source)
 
 ## Set options
-tar_option_set()
+tar_option_set(resources = list(num_cores = 1L)) # number of cores per worker.  
+# Increase num_cores if any functions in tar_plan() take advantage of parallel computing, but be sure num_cores * workers < total investment on HiperGator
 
 ## tar_plan supports drake-style targets and also tar_target()
 tar_plan(
