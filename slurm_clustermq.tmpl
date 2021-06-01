@@ -6,6 +6,7 @@
 #SBATCH --error={{ log_file | logs/workers/pipeline%j_%a.err}}  # log file
 #SBATCH --mem-per-cpu={{ memory | 8192 }}   # memory
 #SBATCH --array=1-{{ n_jobs }}              # job array
+#SBATCH --cpus-per-task={{ num_cores | 1 }} # number of cores per worker
 #SBATCH --time={{ time | 1440 }}
 
 source /etc/profile
