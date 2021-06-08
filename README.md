@@ -4,13 +4,14 @@
 
 <!-- badges: end -->
 
-This is a minimal example of a [`targets`](https://docs.ropensci.org/targets/) workflow that can run on [HiperGator](https://www.rc.ufl.edu/services/hipergator/) HPC using the [`clustermq`](https://mschubert.github.io/clustermq/) backend for paralellization.
-To use, [SSH into HiperGator](https://help.rc.ufl.edu/doc/Getting_Started#Connecting_to_HiPerGator) and navigate to your `blue` or `orange` directory.
+This is a minimal example of a [`targets`](https://docs.ropensci.org/targets/) workflow that can run on [HiperGator](https://www.rc.ufl.edu/services/hipergator/) HPC using the [`clustermq`](https://mschubert.github.io/clustermq/) backend for paralellization. This is intended to be run **on Hipergator** through a command-line interface. For an alternative workflow that uses Hipergator but is run in a local RStudio session, see [this repo](https://github.com/BrunaLab/hipergator-targets-ssh).
+
+To run this example workflow, [SSH into HiperGator](https://help.rc.ufl.edu/doc/Getting_Started#Connecting_to_HiPerGator) and navigate to your `blue` or `orange` directory.
 Then clone this repository by running:
 
     git clone https://github.com/BrunaLab/hipergator-targets.git
 
-Edit `submit_pipeline.sbatch` in a text editor to include your email address and any other SLURM settings you wish.
+Edit `submit_pipeline.sbatch` and `slrum_clustermq.tmpl` in a text editor to include your email address and any other SLURM settings you wish.  Don't touch the wildcards in double curly braces in `slurm_clustermq.tmpl`
 
 Then, start the workflow by running `sbatch submit_pipeline.sbatch`.
 This will start a job on HiperGator that will in turn spawn other jobs using the `clustermq` package and the `slurm_clustermq.tmpl` file.
