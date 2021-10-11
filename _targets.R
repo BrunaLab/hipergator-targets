@@ -1,25 +1,20 @@
-## Figures out if this is being run locally or on HiperGator:
-nodename <- Sys.info()["nodename"]
-if (grepl("ufhpc", nodename)) {
-  print("This is running on HiperGator!")
-  options(clustermq.scheduler = "slurm", clustermq.template = "slurm_clustermq.tmpl")
-} else {
-  print("This is running locally!")
-  options(clustermq.scheduler="multiprocess")
-}
-
-
 ## Load your packages, e.g. library(targets).
+library(targets)
 source("./packages.R")
 lapply(list.files("R", full.names = TRUE), source)
 
+## Run locally in parallel
+# library(future)
+# library(future.callr)
+# plan(callr)
+
+## Run on HiperGator
+library(future)
+library(future.batchtools)
+plan(batchtools_slurm)
+
 ## Set options
 options(tidyverse.quiet = TRUE)
-if (grepl("ufhpc", nodename)) {
-  tar_option_set(resources = list(num_cores = 1L)) # number of cores *per worker*
-} else {
-  tar_option_set()
-}
 
 ## tar_plan supports drake-style targets and also tar_target()
 tar_plan(
