@@ -43,7 +43,7 @@ _targets/
 
 
 #logs
-logs/*.err
-logs/*.out
+#logs/*.err
+#logs/*.out
 
-
+.future/*

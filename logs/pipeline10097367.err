@@ -1,0 +1,7 @@
+Error: callr subprocess failed: Listing of jobs failed (exit code 1);
+cmd: 'squeue --user=$USER --states=R,S,CG --noheader --format=%i -r'
+output:
+squeue: error: Invalid user for SlurmUser slurm, ignored
+squeue: fatal: Unable to process configuration file
+Visit https://books.ropensci.org/targets/debugging.html for debugging advice.
+Execution halted
