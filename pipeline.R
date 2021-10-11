@@ -1,5 +1,5 @@
 ## Install necessary packages
 renv::restore()
 ## Run the pipeline
-targets::tar_make_clustermq(workers = 2L)
+targets::tar_make_future(workers = 2L)
 print("Completed OK")
