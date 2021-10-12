@@ -15,11 +15,7 @@ lapply(list.files("R", full.names = TRUE), source)
 
 ## Set options
 options(tidyverse.quiet = TRUE)
-if (grepl("ufhpc", nodename)) {
-  tar_option_set(resources = list(num_cores = 1L)) # number of cores *per worker*
-} else {
-  tar_option_set()
-}
+
 
 ## tar_plan supports drake-style targets and also tar_target()
 tar_plan(
