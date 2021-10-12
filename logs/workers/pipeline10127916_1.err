@@ -1,0 +1,6 @@
+WARNING: While bind mounting '/apps:/apps': destination is already in the mount point list
+WARNING: While bind mounting '/opt/slurm:/opt/slurm': destination is already in the mount point list
+WARNING: While bind mounting '/var/run/munge:/run/munge': destination is already in the mount point list
+2021-10-12 15:17:01.954230 | Master: tcp://c0706a-s1.ufhpc:9621
+2021-10-12 15:17:01.969375 | WORKER_UP to: tcp://c0706a-s1.ufhpc:9621
+slurmstepd: error: *** JOB 10127916 ON c0702a-s6 CANCELLED AT 2021-10-12T15:25:38 ***
