@@ -10,5 +10,5 @@
 #SBATCH --error logs/pipeline%j.err
 
 #This is a generic R submission script
-module load R/4.0
+module load R/4.0 #currently R 4.1 causes an "invalid user" error on Hipergator
 Rscript pipeline.R
