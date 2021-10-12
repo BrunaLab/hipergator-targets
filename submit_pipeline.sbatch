@@ -10,5 +10,5 @@
 #SBATCH --error logs/pipeline%j.err
 
 #This is a generic R submission script
-module load R
+module load R/4.0
 Rscript pipeline.R

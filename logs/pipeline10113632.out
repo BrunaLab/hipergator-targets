@@ -1,0 +1,11 @@
+* The library is already synchronized with the lockfile.
+Warning message:
+Project requested R version '4.0.2' but '4.1.1' is currently being used 
+[1] "This is running on HiperGator!"
+sbatch: error: Invalid user for SlurmUser slurm, ignored
+sbatch: fatal: Unable to process configuration file
+[1] "#!/bin/sh\n# From https://github.com/mschubert/clustermq/wiki/SLURM\n#SBATCH --job-name=cmq9976        # job name\n#SBATCH --partition=hpg-default          # partition\n##SBATCH --mail-type=ALL                 # uncomment for notifications for each worker\n##SBATCH --mail-user=ericscott@ufl.edu   # uncomment for notifications for each worker\n#SBATCH --output=logs/workers/pipeline%j_%a.out # you can add .%a for array index\n#SBATCH --error=logs/workers/pipeline%j_%a.err   # log file\n#SBATCH --mem-per-cpu=8GB     # memory\n#SBATCH --array=1-2               # job array\n#SBATCH --cpus-per-task=1\n#SBATCH --time=1440\n\nsource /etc/profile\n\nulimit -v $(( 1024 * 8192 ))\nmodule load R/4.0              \nmodule load pandoc         # Uncomment if Rmarkdown is rendered.\nCMQ_AUTH=fjhsh Rscript -e 'clustermq:::worker(\"tcp://c0704a-s2.ufhpc:9976\")'"
+Error in try(self$crew$finalize()) : attempt to apply non-function
+● end pipeline
+Error in (function (n_jobs, ..., log_worker = FALSE, verbose = TRUE)  : 
+  Job submission failed with error code 1

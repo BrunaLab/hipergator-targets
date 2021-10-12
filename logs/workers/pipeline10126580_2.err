@@ -1,0 +1,8 @@
+WARNING: While bind mounting '/apps:/apps': destination is already in the mount point list
+WARNING: While bind mounting '/opt/slurm:/opt/slurm': destination is already in the mount point list
+WARNING: While bind mounting '/var/run/munge:/run/munge': destination is already in the mount point list
+2021-10-12 14:55:04.932416 | Master: tcp://c0704a-s2.ufhpc:9374
+2021-10-12 14:55:04.965224 | WORKER_UP to: tcp://c0704a-s2.ufhpc:9374
+Error in clustermq:::worker("tcp://c0704a-s2.ufhpc:9374") : 
+  Timeout reached, terminating
+Execution halted

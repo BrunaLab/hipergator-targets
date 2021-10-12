@@ -1,0 +1,18 @@
+
+The following have been reloaded with a version change:
+  1) R/4.0 => R/4.1
+
+Warning message:
+Project requested R version '4.0.5' but '4.1.1' is currently being used 
+Error: callr subprocess failed: Job submission failed with error code 1
+Visit https://books.ropensci.org/targets/debugging.html for debugging advice.
+Backtrace:
+    █
+ 1. └─targets::tar_make_clustermq(workers = 2L)
+ 2.   └─targets:::callr_outer(...)
+ 3.     └─base::tryCatch(...)
+ 4.       └─base:::tryCatchList(expr, classes, parentenv, handlers)
+ 5.         └─base:::tryCatchOne(expr, names, parentenv, handlers[[1L]])
+ 6.           └─value[[3L]](cond)
+ 7.             └─targets::tar_throw_run(...)
+Execution halted
